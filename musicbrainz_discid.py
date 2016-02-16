@@ -46,7 +46,7 @@ for x in releases:
 	print("  Artist: " + x['artist-credit'][0]['artist']['name'])
 	print("  Tracks:")
 	for x in x['medium-list']:
-		print("    " + x['format'] + " " + str(x['position']) + ":")
+		print("    " + (x['format'] if 'format' in x else "Medium") + " " + str(x['position']) + ":")
 		tnum = 1
 		for x in x['track-list']:
 			print("      " + "{0:02d} ".format(tnum) + x['recording']['title'])
