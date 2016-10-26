@@ -9,6 +9,7 @@ import musicbrainzngs as ws
 use_json = False
 compact_json = True
 extra_includes = []
+device = None
 
 def usage():
 	print("Usage: {0:s} [-hjJ] [-i list] [device]".format(os.path.basename(sys.argv[0])))
@@ -28,7 +29,7 @@ def json_print(obj):
 
 def die(str):
 	if use_json:
-		json_print({"success": False, "message": str})
+		json_print({"success": False, "message": str, "device": device})
 	else:
 		print("error: " + str)
 	exit(1)
@@ -50,12 +51,13 @@ for o, a in optlist:
 		extra_includes = a.split(",")
 device = discid.get_default_device() if len(args) == 0 else args[len(args) - 1]
 
+if not use_json:
+	print("Device:  " + device)
 try:
 	disc = discid.read(device=device)
 except discid.DiscError as e:
 	die(str(e))
 if not use_json:
-	print("Device:  " + device)
 	print("Disc ID: " + disc.id)
 	print("TOC:     " + disc.toc_string)
 
