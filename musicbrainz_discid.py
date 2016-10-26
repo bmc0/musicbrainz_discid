@@ -25,7 +25,7 @@ def json_print(obj):
 	if compact_json:
 		print(json.dumps(obj, separators=(',', ':')))
 	else:
-		print(json.dumps(obj, indent=2))
+		print(json.dumps(obj, separators=(',', ': '), indent=2))
 
 def die(str):
 	if use_json:
