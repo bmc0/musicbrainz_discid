@@ -95,7 +95,7 @@ else:
 	for x in releases:
 		print("Release " + str(rnum) + ":")
 		print("  ID:     " + x['id'])
-		print("  URL:    http://musicbrainz.org/release/" + x['id'])
+		print("  URL:    https://musicbrainz.org/release/" + x['id'])
 		print("  Title:  " + x['title'] + " ["
 			+ (x['release-event-list'][0]['date'] if 'release-event-list' in x and 'date' in x['release-event-list'][0] else "<no date>")
 			+ ", " + (x['country'] if 'country' in x else "<no country>")

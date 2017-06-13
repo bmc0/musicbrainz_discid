@@ -33,7 +33,7 @@ Flag      | Description
 	Disc ID found
 	Release 1:
 	  ID:     1e365079-6577-409d-b8eb-f9a08b1b01d6
-	  URL:    http://musicbrainz.org/release/1e365079-6577-409d-b8eb-f9a08b1b01d6
+	  URL:    https://musicbrainz.org/release/1e365079-6577-409d-b8eb-f9a08b1b01d6
 	  Title:  Short Movie [2015-03-23, US, Ribbon Music]
 	  Artist: Laura Marling
 	  Tracks:
@@ -53,7 +53,7 @@ Flag      | Description
 		  13 Worship Me
 	Release 2:
 	  ID:     31602cb0-76e7-4741-8519-b3cbd72b6eb1
-	  URL:    http://musicbrainz.org/release/31602cb0-76e7-4741-8519-b3cbd72b6eb1
+	  URL:    https://musicbrainz.org/release/31602cb0-76e7-4741-8519-b3cbd72b6eb1
 	  Title:  Short Movie [2015-03-23, GB, Virgin]
 	  Artist: Laura Marling
 	  Tracks:
