@@ -5,7 +5,7 @@ releases from the MusicBrainz database.
 
 ### Dependencies:
 
-* python2
+* python
 * python-discid
 * python-musicbrainzngs
 
