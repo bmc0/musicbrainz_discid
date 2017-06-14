@@ -99,7 +99,9 @@ else:
 		print("  Title:  " + x['title'] + " ["
 			+ (x['release-event-list'][0]['date'] if 'release-event-list' in x and 'date' in x['release-event-list'][0] else "<no date>")
 			+ ", " + (x['country'] if 'country' in x else "<no country>")
-			+ ", " + (x['label-info-list'][0]['label']['name'] if x['label-info-count'] > 0 else "<no label>") + "]")
+			+ ", " + (x['label-info-list'][0]['label']['name'] if x['label-info-count'] > 0 and 'label' in x['label-info-list'][0] else "<no label name>")
+			+ (" (cat#" + x['label-info-list'][0]['catalog-number'] + ")" if x['label-info-count'] > 0 and 'catalog-number' in x['label-info-list'][0] else "")
+			+ "]")
 		print("  Artist: " + x['artist-credit'][0]['artist']['name'])
 		print("  Tracks:")
 		for x in x['medium-list']:
