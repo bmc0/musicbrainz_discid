@@ -108,6 +108,6 @@ else:
 			print("    " + (x['format'] if 'format' in x else "Medium") + " " + str(x['position']) + ":")
 			tnum = 1
 			for x in x['track-list']:
-				print("      " + "{0:02d} ".format(tnum) + x['recording']['title'])
+				print("      " + "{0:02d} ".format(tnum) + (x['title'] if 'title' in x else x['recording']['title']))
 				tnum += 1
 		rnum += 1
