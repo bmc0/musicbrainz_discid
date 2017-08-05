@@ -102,12 +102,18 @@ else:
 			+ ", " + (x['label-info-list'][0]['label']['name'] if x['label-info-count'] > 0 and 'label' in x['label-info-list'][0] else "<no label name>")
 			+ (" (cat#" + x['label-info-list'][0]['catalog-number'] + ")" if x['label-info-count'] > 0 and 'catalog-number' in x['label-info-list'][0] else "")
 			+ "]")
-		print("  Artist: " + x['artist-credit'][0]['artist']['name'])
+		artist_str = "  Artist: "
+		for artist_elem in x['artist-credit']:
+			if isinstance(artist_elem, dict) and 'artist' in 'artist_elem':
+				artist_str += artist_elem['artist']['name']
+			elif isinstance(artist_elem, str):
+				artist_str += artist_elem
+		print(artist_str)
 		print("  Tracks:")
-		for x in x['medium-list']:
-			print("    " + (x['format'] if 'format' in x else "Medium") + " " + str(x['position']) + ":")
+		for medium in x['medium-list']:
+			print("    " + (medium['format'] if 'format' in medium else "Medium") + " " + str(medium['position']) + ":")
 			tnum = 1
-			for x in x['track-list']:
-				print("      " + "{0:02d} ".format(tnum) + (x['title'] if 'title' in x else x['recording']['title']))
+			for track in medium['track-list']:
+				print("      " + "{0:02d} ".format(tnum) + (track['title'] if 'title' in track else track['recording']['title']))
 				tnum += 1
 		rnum += 1
