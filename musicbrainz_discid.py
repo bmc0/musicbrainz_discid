@@ -32,23 +32,26 @@ def die(str):
 		json_print({"success": False, "message": str, "device": device})
 	else:
 		print("error: " + str)
-	exit(1)
+	sys.exit(1)
 
 try:
 	optlist, args = getopt.gnu_getopt(sys.argv[1:], "hjJi:")
 except getopt.GetoptError as e:
 	print("error: " + str(e))
 	usage()
-	exit(2)
+	sys.exit(2)
 for o, a in optlist:
 	if o == "-h":
 		usage()
-		exit(1)
+		sys.exit(1)
 	elif o in ("-j", "-J"):
 		use_json = True
 		compact_json = (o == "-j")
 	elif o == "-i":
 		extra_includes = a.split(",")
+	else:
+		assert False, "unhandled option"
+
 device = discid.get_default_device() if len(args) == 0 else args[len(args) - 1]
 
 if not use_json:
